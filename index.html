@@ -1,0 +1,144 @@
+<!--
+Title: Assignment 4: index.html
+Full name: Zion "Sean" Ko
+Email: zion_ko@student.uml.edu
+Affiliation: Umass Lowell COMP 4610 Sec 201 GUI Programming 1
+Last update: 2020-10-15
+Description: This is a simple HTML5 web page that introduces myself using Bootstrap.
+Also, it is used as an index for the future assignments.
+
+sources: All sources in the index.html are from our html cheatsheet, textbook. and notes.
+Bootstrap References: 1. https://getbootstrap.com/docs/4.5/getting-started/introduction/
+                      2. https://www.w3schools.com/bootstrap4/bootstrap_get_started.asp
+-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <!-- Bootstrap 4 CDN -->
+          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+          <link rel="stylesheet" href="style.css">  <!-- linking external .css file -->
+
+    </head>
+    <body id ="page">
+          <header>
+                  <b>Sean's GUI World</b> <!-- Header -->
+          </header>
+
+          <!-- Bootstrap to create navigation bars that I desire-->
+          <!-- It contains links to Umass Lowell, Blackboard and my Github -->
+          <nav class="navbar navbar-expand-sm bg-success navbar-dark">
+              <ul class="navbar-nav">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://www.uml.edu">Umass Lowell</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://lowell.umassonline.net/webapps/bb-auth-provider-shibboleth-BBLEARN/execute/shibbolethLogin?returnUrl=https%3A%2F%2Flowell.umassonline.net%2Fwebapps%2Fportal%2Fexecute%2FdefaultTab&authProviderId=_8264_1">Blackboard</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="#">Sean's Github</a>
+                  </li>
+              </ul>
+          </nav>
+
+          <!-- This is to struct my own grid using Bootstrap -->
+          <!-- I just divided them into 2 columns, one on the left has a span of 4, right has span of 8 -->
+          <div class = "container-fluid">
+              <div class = "row">
+                    <!-- left span of 4  -->
+                    <div class = "col-sm-4">
+                        <div class="container">
+                          <h2>Assignments</h2>
+                          <!-- This is an animated progress bar to show how much assignment I have done -->
+                          <div class="progress">
+                              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:50%">Progress: 4 out of 8</div>
+                          </div>
+                        </div>
+                        <!-- This is pretty much carried over from HW2, unordered list -->
+                        <article class="assignments">
+                              <!-- Unordered list for Assignments (buttons using bottstraps) -->
+                              <ul class="assignments" style="list-style-type:none; text-align: left;">
+                                    <li>
+                                        <a href="http://cs.uml.edu/~zko/" class = "btn btn-outline-success btn-normal btn-space" > ASSIGNMENT 1 </a>  <!-- linking other assignment pages 1 to 8-->
+                                    <li>
+                                        <a href="http://cs.uml.edu/~zko/" class = "btn btn-outline-success btn-normal btn-space"> ASSIGNMENT 2 </a>
+                                    <li>
+                                        <a href="http://cs.uml.edu/~zko/hw3/index.html" class = "btn btn-outline-success btn-normal btn-space"> ASSIGNMENT 3 </a>
+                                    <li>
+                                        <a href="http://cs.uml.edu/~zko/" class = "btn btn-outline-success btn-normal btn-space"> ASSIGNMENT 4 </a>
+                                    <li>
+                                        <a href="http://cs.uml.edu/~zko/" class = "btn btn-outline-success btn-normal btn-space"> ASSIGNMENT 5 </a>
+                                    <li>
+                                        <a href="http://cs.uml.edu/~zko/" class = "btn btn-outline-success btn-normal btn-space"> ASSIGNMENT 6 </a>
+                                    <li>
+                                        <a href="http://cs.uml.edu/~zko/" class = "btn btn-outline-success btn-normal btn-space"> ASSIGNMENT 7 </a>
+                                    <li>
+                                        <a href="http://cs.uml.edu/~zko/" class = "btn btn-outline-success btn-normal btn-space"> ASSIGNMENT 8 </a>
+                              </ul>
+                        </article>
+                    </div>
+                    <!-- right span of 8 -->
+                    <div class = "col-sm-8">
+                        <!-- About me section -->
+                        <h1>About Zion "Sean" Ko <!-- heading 1 --></h1>
+                        <article>
+                          <!-- about me paragraph -->
+                              <p>
+                                Zion "Sean" Ko is an undergraduate student at the University of Massachusetts Lowell. His current major is Computer Science. He also studied Business Administration. He was born and raised in Suwon, South Korea. He resides in Boston Area to complete his study. As a side business, he and his girlfriend import rare collectibles and toys from the USA, UK, and Japan to South Korea. His dream is to open a small toy store in Seoul, Korea.
+                              </p>
+                        </article>
+                    </div>
+            </div>
+            <!-- For quoting blocks of contents -->
+            <blockquote class="blockquote">
+                <p id="linus" class = "mb-0"> “Talk is cheap. Show me the code.” </p>
+                <footer class="<blockquote-footer">-Linus Torvalds</footer>
+            </blockquote>
+          </div>
+
+          <!-- These are carried over from HW2 pretty much -->
+          <div>
+              <!-- Picture of myself -->
+              <div class="selfie">
+                  <!-- adding image, adjusting height and width -->
+                  <!-- Bootstrap to make my selfie into a circular shape -->
+                  <img src="self.jpeg" class ="rounded-circle" alt="Selfie" height="300" width="300">
+              </div>
+              <article class="contact">
+                  <!-- contact information email link-->
+                  <a href="mailto: zion_ko@student.uml.edu">Email: zion_ko@student.uml.edu</a>
+              </article>
+              <!-- Bootstrap alert to notify visitors that assignments will be updated along the way -->
+              <div class="alert alert-success" style="text-align: center; font-size: 13px">
+                  <i>* <strong>Note: Assignments will be updated.</i><strong>
+              </div>
+              <footer>  <!-- just to add footer -->
+                      Copyright (c) 2020 by Zion Ko. All rights reserved.
+              </footer>
+
+              <!-- WSS things -->
+              <p>
+                  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                      <img style="border:0;width:88px;height:31px"
+                          src="http://jigsaw.w3.org/css-validator/images/vcss"
+                          alt="Valid CSS!" />
+                  </a>
+              </p>
+              <p>
+                  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                      <img style="border:0;width:88px;height:31px"
+                          src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+                          alt="Valid CSS!" />
+                  </a>
+              </p>
+        </div>
+        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+</html>
