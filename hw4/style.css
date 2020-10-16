@@ -1,0 +1,156 @@
+/*
+Title: Assignment 4: style.css
+Full name: Zion "Sean" Ko
+Email: zion_ko@student.uml.edu
+Affiliation: Umass Lowell COMP 4610 Sec 201 GUI Programming 1
+Last update: 2020-10-15
+Description: This is a simple .css file that modifies and styles index.html
+
+sources: All sources in the index.html and style.css are from our html cheatsheet, textbook. and notes.
+         CSS Reference: https://www.w3schools.com/cssref/default.asp#text
+         No other sources have been used.
+*/
+
+#page {
+  max-width: 1080px;
+  min-width: 720px;
+  margin: auto;
+  padding: 20px;
+}
+
+body {
+  background-color: #ffffff /* changing the background of the body (basically the whole page) */
+}
+@keyframes change_color {   /* This is an animation rule I created that changes color} */
+  from {background-color: #2f3631;}
+  to {background-color: #ffffff;}
+}
+/* header has lot of things that I have modified
+    - aligns text to left
+    - increases size of the header
+    - Header color will changed to the hex color code I selected
+    - Font style is Impact
+    - Borders bottom after the header with "groove style"
+    - There is a animation that cahnges the background color back and forth
+*/
+header {
+  margin: auto;
+  text-align: center;
+  font-size: 400%;
+  color: #32a852;
+  font-family: Impact;
+  border-bottom-color: #ffffff ;
+  border-bottom-width: 5px;
+
+  /* From here and below is for the animation to change the header background color*/
+  width: 100%; /* Decides the width of the anitmated background */
+  height: 80px; /* Decides the height of the anitmated background */
+  background-color: #32a852; /* Decides the color of the anitmated background */
+  animation-name: change_color; /* calling the animation from the keyframes */
+  animation-delay: 1s; /* Decides on when the animation starts (it will strat after 1 sec.) */
+  animation-duration: 3s; /* Decides on how long the animation last (it will last for 3 sec.) */
+  animation-iteration-count: infinite; /* Decides on how many times the animation runs (It will never stop) */
+  animation-direction: alternate; /* decides on dirction of the animation (it will change its color back and forth) */
+}
+
+/* h1 has these elements
+    - aligns text to center
+    - font color will changed to the hex color code I selected
+    - Font style is Tahoma
+    - font size is increased */
+h1 {
+  margin-top: 30px;
+  text-align: right;
+  font-family: Tahoma;
+  color: #000000;
+  font-size: 200%;
+}
+
+/* paragraph has these elements
+    - aligns text to center
+    - font color will changed to the hex color code I selected
+    - Font style is Tahoma
+    - font size is increased
+*/
+article {
+  margin-top: 30px;
+  font-size: 10%;
+
+  text-align: left;
+  font-size: larger;
+  font-family: Tahoma;
+  color: #32a852;
+}
+
+#linus {
+  margin: auto;
+  font-size: 100%;
+  text-align: center;
+  font-size: larger;
+  font-family: Tahoma;
+  color: #32a852;
+}
+
+/* these are for the animation that moves my selfie left to right I explained it along line of codes */
+.selfie {
+  width: 300px; /* creating width and height that matches the size of of my selfie */
+  height: 300px;
+  position: relative; /* setting the positon for the selfie */
+  animation-name: mymove; /* calling the mymove keyframes */
+  animation-duration: 7s; /* decides the duration of the animation */
+  animation-iteration-count: infinite; /* decides on how many times the animation occurs (it is set to infinite) */
+  animation-direction: alternate; /* decides on the moving direction (it will move left and right then left again infinitely) */
+
+}
+@keyframes mymove { /* This is the animation rule that I created to move my selfie left to right */
+  from {left: 0%;}  /* decides where my selfie starts */
+  to {left: calc(100% - 300px);} /* decides on how far my selfie should move to right */
+  /* calc function is to calculate the maximum width that my selfie can move to right */
+}
+
+/* This is to make some spaces between buttons */
+.btn-space {
+  margin-bottom: 5px;
+}
+
+/* .assignments has these elements
+    - aligns text to left
+    - background color will changed to the hex color code I selected
+    - Font style is Tahoma
+*/
+.assignments {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  font-family: Tahoma;
+  text-align: center;
+  background-color: #ffffff; /* changes the back ground color for asssignment list section only */
+  border-right-color: #32a852;
+
+}
+
+/* .contact has these elements
+    - aligns text to right
+    - font color will changed to the hex color code I selected
+    - Font style is Tahoma
+*/
+.contact {
+  /* similar to level 1 heading, but these applies to .contact */
+  margin-right: 10px;
+  font-family: Tahoma;
+  text-align: right;
+  color: #32a852;
+}
+
+
+/* footer has these elements
+    - aligns text to center
+    - font size decreased
+    - Font style is italic
+*/
+footer {
+  /* similar to level 1 heading, but these applies to .contact */
+  text-align: center;
+  font-size: smaller;
+  font-style: italic; /* italic for the contact */
+}
