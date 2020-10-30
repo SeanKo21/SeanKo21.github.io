@@ -145,3 +145,7 @@ tr.tail th:first-child {
 tr.tail td:last-child {
     border-bottom-right-radius: 10px;
 }
+
+footer {
+  margin-top: 20px;
+}
