@@ -1,0 +1,147 @@
+/*
+Title: Assignment 5
+Name: Zion "Sean" Ko
+Email: zion_ko@student.uml.edu
+Affiliation: Umass Lowell COMP 4610 Sec 201 GUI Programming 1
+Last update: 2020-10-29
+Description: Using JavaScript to create dynamic multiplication table.
+Sources: mostly from html cheatsheet, textbook, and notes.
+  1. https://www.w3schools.com/js/js_htmldom.asp
+  2. https://javascript.info/dom-nodes
+  3. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+  4. https://www.learn-js.org
+  5. https://javascript.info
+*/
+
+/* Formatting the body and sets the color to light green*/
+body {
+    text-align: left;
+    margin: 0;
+    font-family: 'Tahoma', sans-serif;
+    margin: 20px;
+    background-color: #ebfceb;
+}
+
+/* formatting the container "Table Maker" that has input boxes */
+fieldset {
+    width: 300px;
+    margin-top: 30px;
+    border: 1px solid black;
+    background-color: #cef0dc;
+}
+
+/* "Table Maker" text formatting for input boxes*/
+legend {
+    font-weight: bold;
+    font-style: oblique;
+    color: black;
+}
+
+/* input box formatting */
+input[type="number"] {
+    background-color: #ebfceb;
+    width: 100px;
+    border: 1px solid black;
+    padding: 2px;
+    outline: none;
+}
+
+/* When hovered, input boxes will highlight is yellow to let the user know which box they are inputting*/
+input[type="number"]:focus,
+input[type="number"]:hover {
+    background-color: lightyellow;
+}
+
+/* This formats the "submit" button */
+input[type="button"] {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 20px;
+}
+
+/* The "submit" button changes color when hovered*/
+input[type="button"]:hover {
+    border: 1px solid black;
+    background-color: gray;
+    color: white;
+    cursor: pointer; /* changes the cursor shape */
+}
+
+/* Formatting input text titles to clumped elements*/
+.title {
+    float: left;
+    width: 200px;
+    clear: left;
+    margin-top: 15px
+}
+
+/* Formatting the error message so it's come out in red for a warning*/
+#errorMessage {
+    color: red;
+}
+
+/* Setting the table so that it can scroll instead when the device screen is too small*/
+#tableDiv {
+    overflow-x: auto;
+    margin-top: 40px;
+}
+
+/* Table spacing */
+table {
+    border-spacing: 0px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+/* Some table formatting for color, border, and so on */
+th, td {
+    padding: 5px 30px 5px 10px;
+    border-spacing: 0px;
+    font-size: 100%;
+    margin: 0px;
+    text-align: left;
+    background-color: #a2e39f;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+/* The head of the table is in a darker color so it's more visible and some formatting */
+tr.head th {
+    color: #ebfceb;
+    background-color: #79a67a;
+    border-bottom: 2px solid #78fc6f;
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+/* change first column grayish to make it more visibe*/
+tr.even th.colHead , th.colHead {
+    background-color: #bfcfbe;
+    border-right: 2px solid #78fc6f;
+}
+
+/*  Every even row are in different shade of green to make it easier to see */
+tr.even td, tr.even th {
+    background-color: #cef0dc;
+}
+
+/* Rounded edges for the table*/
+tr.head th:first-child {
+    border-top-left-radius: 10px;
+}
+
+tr.head th:last-child {
+    border-top-right-radius: 10px;
+}
+
+tr.tail th:first-child {
+    border-bottom-left-radius: 10px;
+}
+tr.tail td:last-child {
+    border-bottom-right-radius: 10px;
+}

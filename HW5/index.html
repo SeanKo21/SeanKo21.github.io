@@ -1,0 +1,131 @@
+<!-- Title: Assignment 5
+Name: Zion "Sean" Ko
+Email: zion_ko@student.uml.edu
+Affiliation: Umass Lowell COMP 4610 Sec 201 GUI Programming 1
+Last update: 2020-10-29
+Description: Using JavaScript to create dynamic multiplication table.
+Sources: mostly from html cheatsheet, textbook, and notes.
+  1. https://www.w3schools.com/js/js_htmldom.asp
+  2. https://javascript.info/dom-nodes
+  3. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+  4. https://www.learn-js.org
+  5. https://javascript.info -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <title>
+            GUI I: Assignment 5
+        </title>
+    </head>
+    <body>
+        <h1 id="top">
+            Multiplication Dynamic Table
+        </h1>
+
+        <!-- Descriptions of the mult table -->
+        <p>
+            This is a dynamic multiplication table where you can input values.
+        </p>
+        <p>
+            You may enter negative and positive integers only.
+        </p>
+        <p>
+            The range between your minimum and maximum cannot be greater than 100.
+        </p>
+
+        <!-- Tform starts here, so I could play around table, inputs, examples, buttons and so on -->
+        <form>
+            <fieldset>
+                <legend>
+                    Table Maker
+                </legend>
+                <!-- Labeleling for the varioust input values -->
+                <label class="title" id="colRange">
+                    Minimum Column Value:
+                </label>
+                <!-- This is for input box and having some placeholder values so the user can have example inputs-->
+                <input type="number" name="colRangeMin" id="colRangeMin" placeholder="1">
+                <br>
+                <label class="title" id="colRange">
+                    Maximum Column Value:
+                </label>
+                <input type="number" name="colRange" id="colRangeMax" placeholder="5">
+                <br>
+                <label class="title">
+                    Minimum Row Value:
+                </label>
+                <input type="number" name="name" id="rowRangeMin" placeholder="1">
+                <br>
+                <label class="title" >
+                    Maximum Row Value:
+                </label>
+                <input type="number" name="name" id="rowRangeMax" placeholder="4">
+                <br>
+                <!-- Subit button to form-->
+                <input id="form-button" type="button" value="Submit">
+            </fieldset>
+        </form>
+
+        <!-- This is the error message field. It should not be visible right away -->
+        <p id="errorMessage">
+        </p>
+
+        <!-- creating table -->
+        <div id="tableDiv">
+            <!-- Having a example multiplication table set up so users can have an idea of what the output might be -->
+            <!-- This example table will go away when a user create his/her own table by inputting values -->
+            <table id="multTable">
+                <tbody>
+                    <tr class="head">
+                        <th></th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                    </tr>
+                    <tr>
+                        <th class="colHead">1</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+
+                    </tr>
+                    <tr class="even">
+                        <th class="colHead">2</th>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>8</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <th class="colHead">3</th>
+                        <td>3</td>
+                        <td>6</td>
+                        <td>9</td>
+                        <td>12</td>
+                        <td>15</td>
+                    </tr>
+                    <tr class="even tail">
+                        <th class="colHead">4</th>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>12</td>
+                        <td>14</td>
+                        <td>16</td>
+                    </tr>
+              </tbody>
+            </table>
+        </div>
+        </a>
+        <!-- The javascript linking -->
+        <script src="javascript/mult_table.js"></script>
+    </body>
+</html>
