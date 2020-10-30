@@ -16,7 +16,7 @@ Sources: mostly from html cheatsheet, textbook, and notes.
 /* Formatting the body and sets the color to light green*/
 body {
     text-align: left;
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Comic Sans MS", sans-serif;
     margin: 20px;
     background-color: #ebfceb;
     max-width: 940px;
