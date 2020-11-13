@@ -1,0 +1,140 @@
+<!--Title: Assignment 6-->
+<!--Name: Zion "Sean" Ko-->
+<!--Email: zion_ko@student.uml.edu-->
+<!--Affiliation: Umass Lowell COMP 4610 Sec 201 GUI Programming 1-->
+<!--Last update: 2020-11-12-->
+<!--Description: Using JavaScript to create dynamic multiplication table.-->
+<!--Sources: mostly from html cheatsheet, textbook, and notes.-->
+<!--1. https://www.w3schools.com/js/js_htmldom.asp-->
+<!--2. https://javascript.info/dom-nodes-->
+<!--3. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions-->
+<!--4. https://www.learn-js.org-->
+<!--5. https://javascript.info-->
+<!--6. https://jqueryvalidation.org/documentation/-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- This is done so it's viewable on different places -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <!-- Google font to get the font -->
+        <title>
+            GUI I: Assignment 6 - Multiplication Table
+        </title>
+    </head>
+
+
+    <body>
+        <!-- Title -->
+        <h1 id="top">
+            MULTIPLICATION DYNAMIC TABLE
+        </h1>
+        <!-- Descriptions of the mult table -->
+        <p>
+            This is a dynamic multiplication table where you can input values.
+        </p>
+        <p>
+            You may enter negative and positive integers only.
+        </p>
+        <p>
+            Please make sure your minimum and maximum values are in the range from -100 to 100.
+        </p>
+
+        <!-- This is the start of the form -->
+        <form id="multForm">
+            <fieldset>
+                <legend>
+                    Table Maker
+                </legend>
+                <!-- Label for the different input values -->
+                <label class="title" id="colRange">
+                    Minimum Column Value:
+                </label>
+                <!-- This is an input box -->
+                <input type="number" name="colRangeMin" id="colRangeMin" placeholder="1">
+                <br>
+                <label class="title" id="colRange">
+                    Maximum Column Value:
+                </label>
+                <input type="number" name="colRangeMax" id="colRangeMax" placeholder="5">
+                <br>
+                <label class="title">
+                    Minimum Row Value:
+                </label>
+                <input type="number" name="rowRangeMin" id="rowRangeMin" placeholder="1">
+                <br>
+                <label class="title" >
+                    Maximum Row Value:
+                </label>
+                <input type="number" name="rowRangeMax" id="rowRangeMax" placeholder="4">
+                <br>
+                <!-- This is the button to submit the form -->
+                <input id="form-button" type="submit" value="Submit">
+            </fieldset>
+        </form>
+        <!-- This is the table div -->
+        <div id="tableDiv">
+            <!-- There is an example table initialized -->
+            <table id="multTable">
+                <!-- This table will be deleted as the user interacts -->
+                <tbody>
+                    <tr class="head">
+                        <th></th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                    </tr>
+                    <tr>
+                        <th class="colHead">1</th>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr class="even">
+                        <th class="colHead">2</th>
+                        <td>2</td>
+                        <td>4</td>
+                        <td>6</td>
+                        <td>8</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <th class="colHead">3</th>
+                        <td>3</td>
+                        <td>6</td>
+                        <td>9</td>
+                        <td>12</td>
+                        <td>15</td>
+                    </tr>
+                    <!-- Marks the bottom row -->
+                    <tr class="even tail">
+                        <th class="colHead">4</th>
+                        <td>4</td>
+                        <td>8</td>
+                        <td>12</td>
+                        <td>16</td>
+                        <td>20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- make you go back to my website -->
+        <div id="GoBack">
+            <a href="https://seanko21.github.io" class = "btn btn-outline-success btn-normal btn-space"> Sean's Main Page </a>
+        </div>
+        <footer>  <!-- just to add footer -->
+            Copyright (c) 2020 by Zion "Sean" Ko. All rights reserved.
+        </footer>
+        <!-- The javascript goes here -->
+        <script src="validator/jquery-3.1.1.min.js"></script>
+        <script src="validator/jquery.validate.js"></script>
+        <script src="js/mult_table.js"></script>
+    </body>
+
+</html>
