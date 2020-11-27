@@ -12,7 +12,7 @@ Please note:
 Github URL:
   https://seanko21.github.io/HW7/index.html
 
-Github HW6 Repository:
+Github HW7 Repository:
   https://github.com/SeanKo21/seanko21.github.io/tree/main/HW7
 *****************************************************************
 
