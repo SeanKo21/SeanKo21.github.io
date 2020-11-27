@@ -1,0 +1,135 @@
+<!--Title: Assignment 7-->
+<!--Name: Zion "Sean" Ko-->
+<!--Email: zion_ko@student.uml.edu-->
+<!--Affiliation: Umass Lowell COMP 4610 Sec 201 GUI Programming 1-->
+<!--Last update: 2020-11-26-->
+<!--Description: Using JavaScript to create dynamic multiplication table.-->
+<!--Sources: mostly from html cheatsheet, textbook, and notes.-->
+<!--1. https://www.w3schools.com/js/js_htmldom.asp-->
+<!--2. https://javascript.info/dom-nodes-->
+<!--3. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions-->
+<!--4. https://www.learn-js.org-->
+<!--5. https://javascript.info-->
+<!--6. https://jqueryvalidation.org/documentation/-->
+<!--7. https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch03_TabsWidget.pdf-->
+<!--8. https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch06_SliderWidget.pdf-->
+<!--9. https://jqueryui.com-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <!-- This is done so it's viewable on different places -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/jquery-ui.css">
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <title>
+            GUI I: Assignment 7 - Multiplication Table with UI Slider and Tab Widgets
+        </title>
+    </head>
+    <body id="top">
+        <div id="tabs" class="tab-content">
+            <ul>
+<!--                <li><a id="table-maker" href="#tabs-1">Table Maker</a></li>-->
+                <li id="table-maker"><a href="#tabs-1">Multiplication Table Maker</a></li>
+                <li id="delete-tabs"><a href="#tabs-1">Delete All Tabs (Destroy All)</a><li>
+<!--                <li><a id="delete-tabs" href="#tabs-1">Delete All Tabs</a><li>-->
+            </ul>
+            <div id="tabs-1">
+                <!-- Title -->
+                <h1>
+                    MULTIPLICATION DYNAMIC SLIDER TABLE
+                </h1>
+                <!-- Descriptions of the mult table -->
+                <p>
+                    This is a dynamic multiplication table where the numbers are incremented by 1.
+                </p>
+                <p>
+                    Use sliders to select or directly input negative and positive integers.
+                </p>
+                <p>
+                    Only integers are allowed in the input box.
+                </p>
+                <p>
+                    Please make sure your minimum and maximum values are in the range from -100 to 100.
+                </p>
+                <!-- This is the error message field. It should not be visible right away -->
+                <p id="error-message">
+                </p>
+                <!-- This is the start of the form -->
+                <form id="multForm">
+                    <fieldset>
+                        <legend>
+                            Table Maker
+                        </legend>
+                        <!-- Label for the different input values -->
+                        <label class="title" id="col-range">
+                            Column Value MIN:
+                        </label>
+                        <!-- This is an input box -->
+                        <input type="number" name="col-range-min" id="col-range-min" placeholder="1">
+                        <!-- This is the slider -->
+                        <div id="slider">
+                            <div id="custom-handle" class="ui-slider-handle"></div>
+                        </div>
+                        <!-- input for x-high -->
+                        <label class="title" id="col-range">
+                            Column Value MAX:
+                        </label>
+                        <input type="number" name="col-range-max" id="col-range-max" placeholder="3">
+                        <div id="slider2">
+                            <div id="custom-handle2" class="ui-slider-handle"></div>
+                        </div>
+                        <!-- input for y-low -->
+                        <label class="title">
+                            Row Value MIN:
+                        </label>
+                        <input type="number" name="row-range-min" id="row-range-min" placeholder="1">
+                        <div id="slider3">
+                            <div id="custom-handle3" class="ui-slider-handle"></div>
+                        </div>
+                        <!-- input for y-high -->
+                        <label class="title">
+                            Row Value MAX:
+                        </label>
+                        <input type="number" name="row-range-max" id="row-range-max" placeholder="4">
+                        <div id="slider4">
+                            <div id="custom-handle4" class="ui-slider-handle"></div>
+                        </div>
+                        <!-- This is the button to submit the form -->
+                        <br>
+                        <input id="form-button" type="submit" value="Create Table Tab">
+                    </fieldset>
+                </form>
+                <!-- This is the table div -->
+                <div id="tableDiv">
+                    <!-- There is an example table initialized -->
+                    <table id="multTable">
+                        <!-- This table will be deleted as the user interacts -->
+                        <!-- There's nothing in the table for now. It's for jQuery to target. -->
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- This button lets you get to the top of page quickly -->
+                <a href="#top" class="fixed-top">
+                    Top
+                </a>
+                <div id="GoBack">
+                    <a href="https://seanko21.github.io" class = "btn btn-outline-success btn-normal btn-space">
+                        Sean's Main Page
+                    </a>
+                </div>
+                <footer>  <!-- just to add footer -->
+                    Copyright (c) 2020 by Zion "Sean" Ko. All rights reserved.
+                </footer>
+                <!-- The javascript goes here -->
+                <script src="jquery/jquery-3.1.1.min.js"></script>
+                <script src="jquery/jquery.validate.js"></script>
+                <script src="jquery/jquery-ui.js"></script>
+                <script src="js/mult_table.js"></script>
+            </div>
+        </div>
+    </body>
+</html>

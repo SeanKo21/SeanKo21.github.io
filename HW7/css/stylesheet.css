@@ -1,0 +1,312 @@
+/*
+Title: Assignment 7
+Name: Zion "Sean" Ko
+Email: zion_ko@student.uml.edu
+Affiliation: Umass Lowell COMP 4610 Sec 201 GUI Programming 1
+Last update: 2020-11-26
+Description: Using JavaScript to create dynamic multiplication table.
+Sources: mostly from html cheatsheet, textbook, and notes.
+  1. https://www.w3schools.com/js/js_htmldom.asp
+  2. https://javascript.info/dom-nodes
+  3. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+  4. https://www.learn-js.org
+  5. https://javascript.info
+  6. https://jqueryvalidation.org/documentation/
+  7. https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch03_TabsWidget.pdf
+  8. https://jesseheines.com/~heines/91.461/91.461-2015-16f/461-assn/jQueryUI1.8_Ch06_SliderWidget.pdf
+  9. https://jqueryui.com
+*/
+
+
+/* Formats the body and sets the color to light green*/
+body {
+    /*     Sets the fonts to one of google fonts*/
+    font-family: Tahoma, sans-serif;
+    margin: 25px;
+    background-color: #ebfceb;
+    max-width: 940px;
+    min-width: 720px;
+    margin: auto;
+    padding: 20px;
+    border: none;
+    /*overflow-x: auto;*/
+    /*overflow-y: auto;*/
+}
+
+.ui-tabs {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    margin: 2px;
+    background-color: #ebfceb;
+;
+}
+
+/* Sets the table so that if table is greater than device width, it can scroll instead*/
+#tableDiv {
+    overflow-x: auto;
+    /*     Sets space on top*/
+    max-width: 940px;
+
+    margin-top: 20px;
+}
+
+/* Table needs some spacing*/
+table {
+    border-spacing: 0px;
+    max-width: 940px;
+    overflow-x: auto;
+    /*overflow-y: auto;*/
+}
+
+#multTable {
+    border-spacing: 0px;
+    max-width: 940px;
+    overflow-x: auto;
+    /*overflow-y: auto;*/
+}
+
+/* The inner tables are placed closely as possible*/
+th, td {
+    /*     Borders to distinguish between cells*/
+    padding: 5px 30px 5px 10px;
+    border-spacing: 0px;
+    font-size: 90%;
+    margin: 0px;
+    text-align: left;
+    background-color: #a2e39f;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+/* The head of the table is in a deeper blue so it's distinguished*/
+tr.head th {
+    /*     Text color constrasts the deep blue*/
+    color: #ebfceb;
+    background-color: #79a67a;
+    border-bottom: 2px solid #78fc6f;
+    border-right: 1px solid white;
+    border-top: 1px solid white;
+    text-align: center;
+    /*     Text shadow to make it look nicer*/
+    text-shadow: -1px -1px 1px #666666;
+    letter-spacing: 0.15em;
+}
+
+/* Differentiate every even rows for better visibility*/
+tr.even td, tr.even th {
+    background-color: #cef0dc;
+}
+
+
+/* Make the chart have rounded edges*/
+tr.head th:first-child {
+    border-top-left-radius: 5px;
+}
+
+/* Make the chart have rounded edges*/
+tr.head th:last-child {
+    border-top-right-radius: 5px;
+}
+
+/* Make the chart have rounded edges*/
+tr.tail th:first-child {
+    border-bottom-left-radius: 5px;
+}
+
+/* Make the chart have rounded edges*/
+tr.tail td:last-child {
+    border-bottom-right-radius: 5px;
+}
+
+/* Make the first column lightgray for better visibility*/
+tr.even th.col-head , th.col-head {
+    background-color: lightgray;
+}
+
+/* This formats the container containing the input boxes*/
+fieldset {
+    width: 300px;
+    margin-top: 20px;
+    border: 1px solid #d6d6d6;
+    background-color: #cef0dc;
+    line-height: 1.6em;
+}
+
+/* This formats the text on top of the input box*/
+legend {
+    text-align: right;
+    font-weight: bold;
+    font-style: oblique;
+    color: black;
+}
+
+
+/* This formats the input boxes*/
+input[type="number"] {
+    width: 120px;
+    border: 1px solid #d6d6d6;
+    padding: 2px;
+    outline: none;
+}
+
+/* This is done so the input box changes color on hover*/
+input[type="number"]:focus,
+input[type="number"]:hover {
+    background-color: #d0e2f0;
+    border: 1px solid #999999;
+}
+
+/* This formats the submit button nicely*/
+input[type="submit"] {
+    border: 1px solid #999;
+    background-color: #555;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+/* The submit button changes color on hover*/
+input[type="submit"]:hover {
+    border: 1px solid #999;
+    background-color: #aaa;
+    color: #ffffff;
+    /*     This is a cool feature to change your cursor*/
+    cursor: pointer;
+}
+
+/* Formats the input text titles so they are not clumped*/
+.title {
+    float: left;
+    width: 160px;
+    clear: left;
+}
+
+/* This formats the element that lets you scroll to top*/
+/* It fixes the element so that it stays in one position*/
+/* As well as having some stylistic changes*/
+.fixed-top {
+    text-align: right;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    background-color: lightskyblue;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+/* Formats the error message so it's more visible*/
+#error-message {
+    color: red;
+}
+
+/*for the jQuery plugin error message*/
+.error {
+    color: red;
+}
+
+/*Customized css to override the css for slider plugin*/
+.ui-slider {
+    margin: 10px 20px 10px 20px;
+}
+
+/*Customized css to override the css for the custom-handle sliders*/
+#custom-handle,
+#custom-handle2,
+#custom-handle3,
+#custom-handle4 {
+    width: 2em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+}
+
+/*This css applies for the close icon appearing next to tab*/
+#tabs li .ui-icon-close {
+    float: right;
+    font-size: large;
+    margin: 0.4em 0.4em 0 0;
+    cursor: pointer;
+}
+
+/*The delete tab should have a special appearance*/
+#delete-tabs {
+ background-color: #f1a899;
+}
+
+
+#table-maker {
+ background-color: lightseagreen;
+}
+
+/*This gets rid of the blue border around the tabs immediately after selection*/
+a:focus {
+    outline: none;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    /*width: 800px;*/
+    width: 300px;
+}
+
+/* adding a button to go back to my main page */
+#GoBack {
+    margin-top: 40px;
+}
+
+/* Adding a footer */
+footer {
+    text-align: right;
+    margin-top: 10px;
+}
+
+a{
+    color: Blue;
+    text-decoration: none;
+}
+
+a:hover{
+    color: red;
+}
+
+#form-button {
+    margin-top: 10px;
+    float: right;
+}
+
+#tabs-1 {
+    background-color: aliceblue;
+    max-width: 940px;
+    /*width: 100%;*/
+}
+
+#tabs {
+    margin: auto;
+    max-width: 940px;
+    background-color: aliceblue;
+    /*overflow-x: auto;*/
+
+}
+
+#tabs button {
+    background-color: white;
+    float: left;
+    border: 1px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 300%;
+}
+
+.tab-content {
+    max-width: 940px;
+    overflow-x: auto;
+}
+
+li {
+    display: inline;
+}
