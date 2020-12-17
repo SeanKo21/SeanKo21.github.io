@@ -8,6 +8,8 @@ Last update: 2020-12-16
 
 ****************************************************************************************************************
 Github URL:
+  https://seanko21.github.io/HW8/
+or 
   https://seanko21.github.io/HW8/index.html
 
 Github HW8 Repository:
