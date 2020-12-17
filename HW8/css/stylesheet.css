@@ -1,0 +1,268 @@
+/*
+Title: Assignment 8
+Name: Zion "Sean" Ko
+Email: zion_ko@student.uml.edu
+Affiliation: Umass Lowell COMP 4610 Sec 201 GUI Programming 1
+Last update: 2020-12-16
+Description: Using JavaScript and JQuery to make SCRABBLE game.
+Sources: mostly from html cheatsheet, textbook, and notes.
+  1. https://www.w3schools.com/js/js_htmldom.asp
+  2. https://javascript.info/dom-nodes
+  3. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions
+  4. https://www.learn-js.org
+  5. https://javascript.info
+  6. https://jqueryvalidation.org/documentation/
+  7. https://stackoverflow.com/questions/885144/how-to-get-current-position-of-an-image-in-jquery
+  8. https://stackoverflow.com/questions/9704087/jquery-add-image-at-specific-co-ordinates
+*/
+
+body {
+    /*margin: 0;*/
+    max-width: 940px;
+    min-width: 720px;
+    font-family: 'Quicksand', sans-serif;
+    margin: auto;
+    background-color: #F6FFF2;
+}
+
+#tableDiv {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+fieldset {
+    width: 800px;
+    margin-top: 20px;
+    border: 1px solid #d6d6d6;
+    background-color: lightcyan;
+    line-height: 1.6em;
+}
+
+legend {
+    font-style: italic;
+    color: #666666;
+}
+
+
+input[type="submit"] {
+    border: 1px solid #999;
+    background-color: coral;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    border: 1px solid #999;
+    background-color: yellow;
+    color: black;
+    cursor: pointer;
+}
+
+input[type="reset"] {
+    border: 1px solid #999;
+    background-color: cornflowerblue;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+input[type="reset"]:hover {
+    border: 1px solid #999;
+    background-color: yellow;
+    color: black;
+    cursor: pointer;
+}
+
+
+.title {
+    float: left;
+    width: 160px;
+    clear: left;
+}
+
+.fixed-top {
+    text-align: right;
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    background-color: white;
+    padding: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+#error-message {
+    color: red;
+}
+
+
+#blocks {
+  background-color: #000;
+  box-shadow: 0 0 3px 1px #000;
+  height: 51px;
+  top: 15px;
+  width: 765px;
+}
+
+#board > #blocks {
+    margin: 15px auto 15px auto;
+    z-index: 1;
+}
+
+#board > #blocks > .block {
+  background-color: white;
+  border: 1px dotted #BBB;
+  float: left;
+  height: 47px;
+  padding: 1px;
+  width: 47px;
+}
+
+#board > #blocks > .block.ltr2 {
+  background-color: cadetblue;
+  border-color: darkblue;
+}
+
+#board > #blocks > .block.wrd3 {
+  background-color: indianred;
+  border-color: darkred;
+}
+
+/* holder implmentation */
+#user-tiles {
+    background-image: url(../graphics_data/scrabble-tile-holder-406774_640.png);
+    background-position: center;
+    background-size: 550px 75px;
+    background-repeat: no-repeat;
+    margin: 15px auto 15px auto;
+    background-color: transparent;
+    /*box-shadow: 0 0 3px 1px #000;*/
+    height: 80px;
+    width: 600px;
+}
+
+#user-tiles > .tile-set {
+    margin-left: 47px;
+    width: 28px;
+    height: 63px;
+    position: relative;
+    float: left;
+}
+
+/* individual tiles implmentation*/
+#user-tiles > .tile-set > .tile {
+  background-image: url(../graphics_data/tileWood.png);
+  cursor: pointer;
+  height: 43px;
+  left: 10px;
+  position: absolute !important;
+  top: 10px;
+  width: 43px;
+  z-index: 13;
+}
+
+
+.block::before {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.block.ltr2::before { content: '2x LETTER';}
+.block.wrd3::before { content: '3x WORD';}
+
+.tile::before {
+  display: block;
+  font-size: 33px;
+  left: 1px;
+  position: absolute;
+  text-align: center;
+  top: 9px;
+  width: 37px;
+}
+
+.tile.tile-a::before { content: 'A'; }
+.tile.tile-b::before { content: 'B'; }
+.tile.tile-c::before { content: 'C'; }
+.tile.tile-d::before { content: 'D'; }
+.tile.tile-e::before { content: 'E'; }
+.tile.tile-f::before { content: 'F'; }
+.tile.tile-g::before { content: 'G'; }
+.tile.tile-h::before { content: 'H'; }
+.tile.tile-i::before { content: 'I'; }
+.tile.tile-j::before { content: 'J'; }
+.tile.tile-k::before { content: 'K'; }
+.tile.tile-l::before { content: 'L'; }
+.tile.tile-m::before { content: 'M'; }
+.tile.tile-n::before { content: 'N'; }
+.tile.tile-o::before { content: 'O'; }
+.tile.tile-p::before { content: 'P'; }
+.tile.tile-q::before { content: 'Q'; }
+.tile.tile-r::before { content: 'R'; }
+.tile.tile-s::before { content: 'S'; }
+.tile.tile-t::before { content: 'T'; }
+.tile.tile-u::before { content: 'U'; }
+.tile.tile-v::before { content: 'V'; }
+.tile.tile-w::before { content: 'W'; }
+.tile.tile-x::before { content: 'X'; }
+.tile.tile-y::before { content: 'Y'; }
+.tile.tile-z::before { content: 'Z'; }
+.tile.tile-_::before { content: ''; }
+
+.tile::after {
+  bottom: -3px;
+  font-size: 10px;
+  position: absolute;
+  right: 4px;
+}
+
+.tile.tile-a::after { content:  "1";}
+.tile.tile-b::after { content:  "3";}
+.tile.tile-c::after { content:  "3";}
+.tile.tile-d::after { content:  "2";}
+.tile.tile-e::after { content:  "1";}
+.tile.tile-f::after { content:  "4";}
+.tile.tile-g::after { content:  "2";}
+.tile.tile-h::after { content:  "4";}
+.tile.tile-i::after { content:  "1";}
+.tile.tile-j::after { content:  "8";}
+.tile.tile-k::after { content:  "5";}
+.tile.tile-l::after { content:  "1";}
+.tile.tile-m::after { content:  "3";}
+.tile.tile-n::after { content:  "1";}
+.tile.tile-o::after { content:  "1";}
+.tile.tile-p::after { content:  "3";}
+.tile.tile-q::after { content: "10";}
+.tile.tile-r::after { content:  "1";}
+.tile.tile-s::after { content:  "1";}
+.tile.tile-t::after { content:  "1";}
+.tile.tile-u::after { content:  "1";}
+.tile.tile-v::after { content:  "4";}
+.tile.tile-w::after { content:  "4";}
+.tile.tile-x::after { content:  "8";}
+.tile.tile-y::after { content:  "4";}
+.tile.tile-z::after { content: "10";}
+.tile.tile-_::after { content:   "";}
+
+#userscore {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+#turn-counter {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+footer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#GoBack {
+    margin-top: 40px;
+}

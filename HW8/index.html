@@ -1,0 +1,142 @@
+<!--Title: Assignment 8-->
+<!--Name: Zion "Sean" Ko-->
+<!--Email: zion_ko@student.uml.edu-->
+<!--Affiliation: Umass Lowell COMP 4610 Sec 201 GUI Programming 1-->
+<!--Last update: 2020-12-16-->
+<!--Description: Using JavaScript and JQuery to make SCRABBLE game.-->
+<!--Sources: mostly from html cheatsheet, textbook, and notes.-->
+<!--1. https://www.w3schools.com/js/js_htmldom.asp-->
+<!--2. https://javascript.info/dom-nodes-->
+<!--3. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions-->
+<!--4. https://www.learn-js.org-->
+<!--5. https://javascript.info-->
+<!--6. https://jqueryvalidation.org/documentation/-->
+<!--7. https://stackoverflow.com/questions/885144/how-to-get-current-position-of-an-image-in-jquery-->
+<!--8. https://stackoverflow.com/questions/9704087/jquery-add-image-at-specific-co-ordinates-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- This is done so it's viewable on different places -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/stylesheet.css">
+        <title>
+            GUI I: Assignment 8 - Scrabble - Sean Ko
+        </title>
+    </head>
+
+
+    <body>
+        <!-- Title -->
+        <h1 id="top">
+            GUI I: Assignment 8 - Scrabble - Sean Ko
+        </h1>
+        <p>
+            This is a classic game of SCRABBLE
+        </p>
+        <p>
+            As of now, only the very first top row of the board is implemented.
+        </p>
+        <p>
+            Score will be added each turn.
+        </p>
+        <p>
+            Click "New Game" to reset the game.
+        </p>
+
+        <p id="error-message"></p>
+
+        <!-- This is for the board of the game -->
+        <fieldset>
+            <div id="board">
+                <legend>
+                    Scrabble Game Board (Top Row Only)
+                </legend>
+                <!-- There are 15 blocks, on the top row in the scrabble board -->
+                <div id="blocks">
+                    <!-- Bonus modifier for 3x  -->
+                    <div class="block wrd3 ui-droppable" id="block-0">
+                    </div>
+                    <div class="block ui-droppable" id="block-1">
+                    </div>
+                    <div class="block ui-droppable" id="block-2">
+                    </div>
+                    <!-- This is the 2x letter  -->
+                    <div class="block ltr2 ui-droppable" id="block-3">
+                    </div>
+                    <div class="block ui-droppable" id="block-4">
+                    </div>
+                    <div class="block ui-droppable" id="block-5">
+                    </div>
+                    <div class="block ui-droppable" id="block-6">
+                    </div>
+                    <!-- Bonus for 3x  -->
+                    <div class="block wrd3 ui-droppable" id="block-7">
+                    </div>
+                    <div class="block ui-droppable" id="block-8">
+                    </div>
+                    <div class="block ui-droppable" id="block-9">
+                    </div>
+                    <div class="block ui-droppable" id="block-10">
+                    </div>
+                    <!-- This is the 2x letter -->
+                    <div class="block ltr2 ui-droppable" id="block-11">
+                    </div>
+                    <div class="block ui-droppable" id="block-12">
+                    </div>
+                    <div class="block ui-droppable" id="block-13">
+                    </div>
+                    <div class="block wrd3 ui-droppable" id="block-14">
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <form id="user" style="text-align: center">
+            <fieldset>
+                <legend>
+                    Your Current Tiles
+                </legend>
+                <!-- This is to display the turn -->
+                <div id="turn-counter">TURN: 0</div>
+                <!-- This is to display the score -->
+                <div id="userscore">YOUR SCORE: 0</div>
+                <div id="user-tiles">
+                    <!-- There are 7 tiles for the user -->
+                    <div class="tile-set ui-droppable" id="tile-0">
+                    </div>
+                    <div class="tile-set ui-droppable" id="tile-1">
+                    </div>
+                    <div class="tile-set ui-droppable" id="tile-2">
+                    </div>
+                    <div class="tile-set ui-droppable" id="tile-3">
+                    </div>
+                    <div class="tile-set ui-droppable" id="tile-4">
+                    </div>
+                    <div class="tile-set ui-droppable" id="tile-5">
+                    </div>
+                    <div class="tile-set ui-droppable" id="tile-6">
+                    </div>
+                </div>
+                <!-- This "next turn" submit button -->
+                <input id="form-button" type="submit" value="Next Turn" >
+                <!-- This is the reset button -->
+                <input id="reset-button" type="reset" value="New Game">
+            </fieldset>
+        </form>
+        <!-- make you go back to my website -->
+        <div id="GoBack">
+            <a href="https://seanko21.github.io" class = "btn btn-outline-success btn-normal btn-space"> Sean's Main Page </a>
+        </div>
+        <footer>  <!-- just to add footer -->
+            Copyright (c) 2020 by Zion "Sean" Ko. All rights reserved.
+        </footer>
+
+        <!-- The javascript goes here -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/scrabble.js"></script>
+    </body>
+
+</html>
